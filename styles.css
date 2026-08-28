@@ -84,12 +84,12 @@ button.ghost {
 
 button.ghost-danger {
     color: var(--status-danger-fg);
-    border-color: rgba(255, 123, 123, 0.4);
+    border-color: var(--status-danger-border);
 }
 
 button#sync-drive {
     color: var(--accent);
-    border-color: rgba(109, 211, 255, 0.5);
+    border-color: var(--border-focus);
 }
 
 .layout {
@@ -131,23 +131,8 @@ button#sync-drive {
     }
 }
 
-.panel {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: var(--radius-lg);
-    padding: 18px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode .panel {
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
+/* .panel is a design-system primitive; its surface, hairline, radius and
+   shadow come from there. Converse only positions it. */
 
 .panel.info {
     height: 100%;
@@ -276,16 +261,10 @@ body.dark-mode .panel {
     flex-direction: column;
     height: 100%;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    background: var(--surface);
 }
 
-body.dark-mode .chat {
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-}
+
 
 .chat-header {
     display: flex;
@@ -352,17 +331,17 @@ body.dark-mode .chat {
 }
 
 .messages::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: transparent;
     border-radius: 3px;
 }
 
 .messages::-webkit-scrollbar-thumb {
-    background: rgba(109, 211, 255, 0.3);
+    background: var(--scrollbar-thumb);
     border-radius: 3px;
 }
 
 .messages::-webkit-scrollbar-thumb:hover {
-    background: rgba(109, 211, 255, 0.5);
+    background: var(--scrollbar-thumb-hover);
 }
 
 .messages .bubble {
@@ -377,7 +356,7 @@ body.dark-mode .chat {
 .messages .from-me {
     align-self: flex-end;
     background: linear-gradient(135deg, var(--surface-soft), var(--surface-strong));
-    border-color: rgba(37, 99, 235, 0.35);
+    border-color: var(--border-focus);
 }
 
 body.dark-mode .messages .from-me {
@@ -465,7 +444,7 @@ body.dark-mode .messages .from-them {
 }
 
 .chat-header-actions button:hover {
-    border-color: rgba(109, 211, 255, 0.6);
+    border-color: var(--border-focus);
 }
 
 .recent-chats {
@@ -482,17 +461,17 @@ body.dark-mode .messages .from-them {
 }
 
 .recent-chats::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: transparent;
     border-radius: 3px;
 }
 
 .recent-chats::-webkit-scrollbar-thumb {
-    background: rgba(109, 211, 255, 0.3);
+    background: var(--scrollbar-thumb);
     border-radius: 3px;
 }
 
 .recent-chats::-webkit-scrollbar-thumb:hover {
-    background: rgba(109, 211, 255, 0.5);
+    background: var(--scrollbar-thumb-hover);
 }
 
 .recent-chats .empty {
@@ -507,15 +486,15 @@ body.dark-mode .messages .from-them {
     gap: 12px;
     padding: 10px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
+    background: transparent;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1px solid transparent;
 }
 
 .recent-chat-item:hover {
-    background: rgba(109, 211, 255, 0.1);
-    border-color: rgba(109, 211, 255, 0.3);
+    background: var(--pill-bg);
+    border-color: var(--border);
 }
 
 .recent-chat-item__avatar {
