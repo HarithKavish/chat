@@ -39,8 +39,9 @@ body {
     background: var(--shell-bg-light);
     background-attachment: fixed;
     color: var(--text);
-    padding-top: 80px;
-    padding-bottom: 80px;
+    /* The design system header is position:sticky and stays in flow, so no
+       top offset is needed here. v1.0.0's header was position:fixed and this
+       padding reserved its space. */
 }
 
 body.dark-mode {
