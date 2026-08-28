@@ -1,53 +1,15 @@
-:root {
-    /* Default to Light Theme */
-    --shell-bg-light: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 50%, #fff9c4 100%);
-    --shell-bg-dark: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
-    --bg: #f5f7fa;
-    --panel: #ffffff;
-    --panel-2: #f0f2f5;
-    --text: #222;
-    --muted: #666;
-    --accent: #2563eb;
-    --danger: #dc2626;
-    --border: #e0e0e0;
-    --radius: 14px;
-    --shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    --font: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-}
+/* Converse adds only what the design system does not have. Every colour, radius,
+   shadow and font comes from the system, so this surface tracks the ecosystem
+   instead of carrying the retired v1.0.0 identity it was built on. */
 
 /* Dark Theme */
-body.dark-mode {
-    --bg: #0b0c10;
-    --panel: #11131a;
-    --panel-2: #161925;
-    --text: #f4f6fb;
-    --muted: #99a1b3;
-    --accent: #6dd3ff;
-    --danger: #ff7b7b;
-    --border: #1f2433;
-    --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-}
+
 
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: var(--font);
-    background: var(--shell-bg-light);
-    background-attachment: fixed;
-    color: var(--text);
-    /* The design system header is position:sticky and stays in flow, so no
-       top offset is needed here. v1.0.0's header was position:fixed and this
-       padding reserved its space. */
-}
-
-body.dark-mode {
-    background: var(--shell-bg-dark);
-    background-attachment: fixed;
-}
+/* base.css paints the page field, sets the font and the text colour. */
 
 .page {
     max-width: 100%;
@@ -77,8 +39,7 @@ body.dark-mode {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), #e4f8ff);
-    box-shadow: 0 0 18px rgba(109, 211, 255, 0.6);
+    background: var(--dot-online);
 }
 
 .brand .title {
@@ -94,7 +55,7 @@ button {
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--accent);
-    color: #fff;
+    color: var(--text-on-accent);
     padding: 10px 16px;
     cursor: pointer;
     font-size: 14px;
@@ -113,7 +74,7 @@ button:active {
 
 body.dark-mode button {
     background: var(--accent);
-    color: #fff;
+    color: var(--text-on-accent);
 }
 
 button.ghost {
@@ -122,7 +83,7 @@ button.ghost {
 }
 
 button.ghost-danger {
-    color: var(--danger);
+    color: var(--status-danger-fg);
     border-color: rgba(255, 123, 123, 0.4);
 }
 
@@ -175,7 +136,7 @@ button#sync-drive {
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 18px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
@@ -205,12 +166,12 @@ body.dark-mode .panel {
 
 .user-card {
     border: 1px dashed var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 12px;
     display: flex;
     gap: 12px;
     align-items: center;
-    background: var(--panel-2);
+    background: var(--surface-soft);
 }
 
 .user-card img {
@@ -249,9 +210,9 @@ body.dark-mode .panel {
 .input-with-button {
     display: flex;
     align-items: center;
-    background: var(--panel-2);
+    background: var(--surface-soft);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 2px;
 }
 
@@ -290,9 +251,9 @@ body.dark-mode .panel {
 .start-form input,
 .message-form input {
     width: 100%;
-    background: var(--panel-2);
+    background: var(--surface-soft);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     padding: 10px 12px;
     color: var(--text);
     font-size: 15px;
@@ -415,22 +376,22 @@ body.dark-mode .chat {
 
 .messages .from-me {
     align-self: flex-end;
-    background: linear-gradient(135deg, var(--panel-2), var(--panel));
+    background: linear-gradient(135deg, var(--surface-soft), var(--surface-strong));
     border-color: rgba(37, 99, 235, 0.35);
 }
 
 body.dark-mode .messages .from-me {
-    background: linear-gradient(135deg, #1b2334, #131a27);
-    border-color: rgba(109, 211, 255, 0.35);
+    background: var(--surface-strong);
+    border-color: var(--border);
 }
 
 .messages .from-them {
     align-self: flex-start;
-    background: var(--panel-2);
+    background: var(--surface-soft);
 }
 
 body.dark-mode .messages .from-them {
-    background: #111522;
+    background: var(--surface-soft);
 }
 
 .messages .timestamp {
@@ -498,7 +459,7 @@ body.dark-mode .messages .from-them {
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.25);
     background: rgba(255, 255, 255, 0.08);
-    color: #f4f6fb;
+    color: var(--text);
     padding: 0.35rem 0.9rem;
     font-size: 0.85rem;
 }
